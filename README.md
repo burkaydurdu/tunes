@@ -1,24 +1,45 @@
-# README
+# Tunes
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Development Environment
 
-Things you may want to cover:
+### Install Xcode
+```sh
+xcode-select --install
+```
 
-* Ruby version
+### Install rbenv
+```sh
+brew install rbenv ruby-build
+```
 
-* System dependencies
+### Install PostgreSQL
+```sh
+brew install postgresql
+```
 
-* Configuration
+### Create Project
+```sh
+rails new bac-cix --api --database=postgresql
+```
 
-* Database creation
+### Run Test
+```sh
+rails test
+```
 
-* Database initialization
+### Deploy to Heroku
 
-* How to run the test suite
+Install heroku-cli
+[Heroku](https://devcenter.heroku.com/articles/heroku-cli)
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```sh
+heroku login
+heroku create
+git config --list --local | grep heroku
+git push heroku master
+heroku run rake db:migrate
+heroku ps:scale web=1
+heroku ps
+heroku open
+heroku logs
+```
